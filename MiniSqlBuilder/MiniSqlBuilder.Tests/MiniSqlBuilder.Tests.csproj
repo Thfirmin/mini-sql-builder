@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MiniSqlBuilder.Lib\MiniSqlBuilder.Lib.csproj" />
+    <ProjectReference Include="..\MiniSqlBuilder.Playground\MiniSqlBuilder.Playground.csproj" />
   </ItemGroup>
 
 </Project>

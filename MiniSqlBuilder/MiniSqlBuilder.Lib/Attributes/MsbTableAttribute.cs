@@ -8,7 +8,7 @@ public sealed class MsbTableAttribute : Attribute
     public MsbTableAttribute(string tableName)
     {
         if (string.IsNullOrWhiteSpace(tableName))
-            throw new ArgumentException("Table name cannot be null or whitespace");
+            throw new ArgumentException("Table name cannot be null or whitespace", nameof(tableName));
 
         if (tableName.Length > 100)
             throw new ArgumentException("Table name cannot be longer than 100 characters");
