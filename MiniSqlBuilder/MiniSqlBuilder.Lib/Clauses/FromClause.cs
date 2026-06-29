@@ -1,13 +1,17 @@
-using MiniSqlBuilder.Lib.Nodes;
+using MiniSqlBuilder.Lib.Metadata;
 
 namespace MiniSqlBuilder.Lib.Clauses;
 
 public sealed class FromClause
 {
-    public TableNode TableNode { get; set; }
+    public TableMetadata? TableMetadata { get; init; }
+    public string TableAlias { get; init; } = string.Empty;
 
-    public FromClause(string? tableAlias = null)
+    public FromClause() {}
+
+    public FromClause(TableMetadata tableMetadata, string? tableAlias = null)
     {
-        TableNode = new TableNode(tableAlias);
+        TableMetadata = tableMetadata;
+        TableAlias = tableAlias ?? tableMetadata.TableName;
     }
 }

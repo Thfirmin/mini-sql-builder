@@ -1,15 +1,18 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using MiniSqlBuilder.Lib.Cache;
+using MiniSqlBuilder.Lib.Query;
+using MiniSqlBuilder.Lib.Sql;
 using MiniSqlBuilder.Playground.Models;
 
-var m1 = MetadataCache<UserModel>.Metadata;
-var m2 = MetadataCache<UserModel>.Metadata;
-var m3 = MetadataCache<User2Model>.Metadata;
-var m4 = MetadataCache<User2Model>.Metadata;
-var m5 = MetadataCache<UserModel>.Metadata;
-var m6 = MetadataCache<UserModel>.Metadata;
-var m7 = MetadataCache<User2Model>.Metadata;
-var m8 = MetadataCache<User2Model>.Metadata;
+var query = SqlQuery
+	.From<UserModel>()
+	.Select()
+	.Build(SqlServerGenerator.Instance);
 
-Console.WriteLine("Hello, World!");
+var query2 = SqlQuery
+	.From<UserModel>("UserAlias")
+	.Select()
+	.Build(SqlServerGenerator.Instance);
+
+Console.WriteLine(query.Sql);
+Console.WriteLine(query2.Sql);
